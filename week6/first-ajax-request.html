@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My First AJAX Request</title>
+</head>
+<body>
+	<h1 class ="temp"></h1>
+	<img src="#" class="weather" alt="weather image">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+	$(function(){
+		$.ajax({
+			url: 'http://api.wunderground.com/api/61f0a55cb00602dc/conditions/q/Scotland/Edinburgh.json',
+			type: 'GET',
+			dataType: 'jsonp',
+			success: function(response){
+				var foRealTemp = response.current_observation.feelslike_c;
+				var location = response.current_observation.display_location.city;
+				var weatherImage = response.current_observation.icon_url;
+				$('.temp').html("It's currently " + foRealTemp + " degrees in " + location + ".");
+				$('img.weather').attr('src', weatherImage);
+			}
+
+		});
+	});
+	</script>
+</body>
+</html>

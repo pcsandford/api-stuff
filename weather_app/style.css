@@ -1,0 +1,22 @@
+body {
+	color:#FDFDFD;
+}
+
+.wrapper {
+  width:100vw;
+  height:100vh;
+  position: relative;
+  padding-top: 1px;
+  background: rgba(0, 0, 0, 0.3); /* If our image is bright, we can tone it down with this darker overlay */
+}
+.wrapper:after {
+  content: "";
+  position: absolute;
+  background-image: url("mountain.jpeg");
+  background-size: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
